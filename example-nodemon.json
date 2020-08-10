@@ -1,0 +1,10 @@
+{
+    "env": {
+        "MONGODB_CONN_STRING": "mongodb+srv://dbusername:dbpassword@yourclusterurl/dbname?retryWrites=true&w=majority",
+        "JWT_KEY": "KeyHere",
+        "MYSQL_HOST": "localhost",
+        "MYSQL_USER": "root",
+        "MYSQL_DATABASE": "master_barang",
+        "MYSQL_PASSWORD": ""
+    }
+}

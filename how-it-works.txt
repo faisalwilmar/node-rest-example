@@ -1,0 +1,7 @@
+1. Node.js will call server.js 
+2. server.js listen the incoming request by certain port, the forward it to the handler --> app.js 
+3. app.js handle the request and forward it to the routes based on URI the user call
+4. routes (inside api/routes folder) will routes the request to controller
+5. Middleware (jwt auth) verify if it's authorized user/request
+6. Controller will handle the request to execute certain function
+

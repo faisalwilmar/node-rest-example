@@ -6,7 +6,7 @@ Node-rest-example is example project for RESTful API using NodeJs.
 - MongoDB v4.2.8
 - Mongoose as ODM (Object Data Model)
 - Sequelize as ORM (Object Relational Model)
-- Nodemon as Server Montor -- development dependency
+- Nodemon as Server Monitor -- development dependency
 
 This project based on Maximilian Schwarzmüller's video on [Youtube](https://www.youtube.com/playlist?list=PL55RiY5tL51q4D-B63KBnygU6opNPFk_q) and [Udemy Course](https://www.udemy.com/course/nodejs-the-complete-guide/).
 

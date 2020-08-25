@@ -29,7 +29,7 @@ exports.items_get_all = (req, res, next) => {
 exports.items_create_new = (req, res, next) => {
     const title = req.body.title;
     const price = req.body.price;
-    const imageUrl = req.body.imageUrl;
+    const imageUrl = req.file.url;
     const description = req.body.description;
 
     Item.create({

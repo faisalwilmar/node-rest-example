@@ -33,8 +33,6 @@ const upload = multer({
     fileFilter: fileFilter
 }); //start the multer and define which storage strategy to use
 
-const Product = require('../models/product');
-
 router.get('/', ProductController.products_get_all) //this will be /products, coz /products already mentioned in app.js middleware
 
 router.post('/', checkAuth, upload.single('productImage'), ProductController.products_create_new) //upload.single will be executed first before products_create_new. productImage is the field name for file

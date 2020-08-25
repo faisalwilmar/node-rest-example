@@ -6,6 +6,8 @@
         "MYSQL_USER": "root",
         "MYSQL_DATABASE": "master_barang",
         "MYSQL_DATABASE_SEQ": "sequelize_item",
-        "MYSQL_PASSWORD": ""
+        "MYSQL_PASSWORD": "",
+        "AZURE_BLOB_CONN_STRING": "DefaultEndpointsProtocol=https;AccountName=<your_account_name>;AccountKey=<your_account_key>;EndpointSuffix=core.windows.net",
+        "AZURE_BLOB_KEY": "<your_account_key>"
     }
 }

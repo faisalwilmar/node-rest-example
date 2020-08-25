@@ -22,7 +22,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"email\" : \"faisalwilmar@gmail.com\",\n\t\"password\" : \"password\"\n}"
+					"raw": "{\n\t\"email\" : \"fafawilmar@gmail.com\",\n\t\"password\" : \"mypassword\"\n}"
 				},
 				"url": {
 					"raw": "localhost:3000/users/login",
@@ -479,6 +479,519 @@
 					"path": [
 						"orders",
 						"5f2bf26bbf16ac428c405509"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Barangs",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZhZmF3aWxtYXJAZ21haWwuY29tIiwidXNlcklkIjoiNWYyYmY1YTA0ZjgyYTUzODMwOWM0Mzc1IiwiaWF0IjoxNTk3NzQxNjEzLCJleHAiOjE1OTc5MTQ0MTN9.I0DAtF82FYCjHCxFHtOcuPfBv7tqrOT_FgtTUX5Dy-Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"4\",\r\n    \"nama_barang\":\"Mein Kampf\",\r\n    \"harga\":\"25000\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/barangs",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"barangs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Barang - Single",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZhZmF3aWxtYXJAZ21haWwuY29tIiwidXNlcklkIjoiNWYyYmY1YTA0ZjgyYTUzODMwOWM0Mzc1IiwiaWF0IjoxNTk3NzQxNjEzLCJleHAiOjE1OTc5MTQ0MTN9.I0DAtF82FYCjHCxFHtOcuPfBv7tqrOT_FgtTUX5Dy-Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[ \r\n { \"propName\": \"price\", \"value\": \"999666\" }\r\n]"
+				},
+				"url": {
+					"raw": "localhost:3000/barangs/4",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"barangs",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Items",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZhZmF3aWxtYXJAZ21haWwuY29tIiwidXNlcklkIjoiNWYyYmY1YTA0ZjgyYTUzODMwOWM0Mzc1IiwiaWF0IjoxNTk3ODI5NDcwLCJleHAiOjE1OTgwMDIyNzB9.t-p72F48VOICotjALGkpaMlwq0bwlA6hFiz6YKAQFEI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[ \r\n { \"propName\": \"price\", \"value\": \"999666\" }\r\n]"
+				},
+				"url": {
+					"raw": "localhost:3000/items",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Item - Single",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZhZmF3aWxtYXJAZ21haWwuY29tIiwidXNlcklkIjoiNWYyYmY1YTA0ZjgyYTUzODMwOWM0Mzc1IiwiaWF0IjoxNTk3ODI5NDcwLCJleHAiOjE1OTgwMDIyNzB9.t-p72F48VOICotjALGkpaMlwq0bwlA6hFiz6YKAQFEI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/items/3",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"items",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put Items",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZhZmF3aWxtYXJAZ21haWwuY29tIiwidXNlcklkIjoiNWYyYmY1YTA0ZjgyYTUzODMwOWM0Mzc1IiwiaWF0IjoxNTk3ODMzMTQ4LCJleHAiOjE1OTgwMDU5NDh9.Tegl3fGePo4cp-qHbeRUhNOFIz8OrUPtSm3I3EXtxEY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"Item Added by Sequelize 2 Updated\",\r\n    \"price\":69.99\r\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/items/2",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"items",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Items",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZhZmF3aWxtYXJAZ21haWwuY29tIiwidXNlcklkIjoiNWYyYmY1YTA0ZjgyYTUzODMwOWM0Mzc1IiwiaWF0IjoxNTk3OTc5MTUxLCJleHAiOjE1OTgxNTE5NTF9.7IbDtHmk09-TW1HG9esJyr6Rzt37etCBRlwiluNFkI4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/items/2",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"items",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Pesanans",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZhZmF3aWxtYXJAZ21haWwuY29tIiwidXNlcklkIjoiNWYyYmY1YTA0ZjgyYTUzODMwOWM0Mzc1IiwiaWF0IjoxNTk3OTk0NjA2LCJleHAiOjE1OTgxNjc0MDZ9.7MBgbrrbA8Kzm8GUQthoiJsokpWjHGI0FMuTkYnBDSw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/pesanans",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pesanans"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Pesanan - Single",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZhZmF3aWxtYXJAZ21haWwuY29tIiwidXNlcklkIjoiNWYyYmY1YTA0ZjgyYTUzODMwOWM0Mzc1IiwiaWF0IjoxNTk3OTk0NjA2LCJleHAiOjE1OTgxNjc0MDZ9.7MBgbrrbA8Kzm8GUQthoiJsokpWjHGI0FMuTkYnBDSw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/pesanans/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pesanans",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Pesanans",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZhZmF3aWxtYXJAZ21haWwuY29tIiwidXNlcklkIjoiNWYyYmY1YTA0ZjgyYTUzODMwOWM0Mzc1IiwiaWF0IjoxNTk3OTk0NjA2LCJleHAiOjE1OTgxNjc0MDZ9.7MBgbrrbA8Kzm8GUQthoiJsokpWjHGI0FMuTkYnBDSw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/pesanans/2",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pesanans",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Pesanans",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZhZmF3aWxtYXJAZ21haWwuY29tIiwidXNlcklkIjoiNWYyYmY1YTA0ZjgyYTUzODMwOWM0Mzc1IiwiaWF0IjoxNTk4MDA1MDY0LCJleHAiOjE1OTgxNzc4NjR9.ZwzfRIw1belgIBpMQspAkQ1d8c6_XGWUZ17uA5uDs1s",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"address\": \"DekatRumah\",\r\n    \"payment\": \"MasterCard\",\r\n    \"items\":[\r\n        {\r\n            \"id\": 1\r\n        },\r\n        {\r\n            \"id\": 2\r\n        },\r\n        {\r\n            \"id\": 4\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/pesanans",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pesanans"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Item from Pesanan",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZhZmF3aWxtYXJAZ21haWwuY29tIiwidXNlcklkIjoiNWYyYmY1YTA0ZjgyYTUzODMwOWM0Mzc1IiwiaWF0IjoxNTk4MDEzMTU4LCJleHAiOjE1OTgxODU5NTh9.M8OcjTUlbXZyOp5gDf_2_JU73arUfl5CP7tZef0S2Yc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/pesanans/item/3/4",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pesanans",
+						"item",
+						"3",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Items",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZhZmF3aWxtYXJAZ21haWwuY29tIiwidXNlcklkIjoiNWYyYmY1YTA0ZjgyYTUzODMwOWM0Mzc1IiwiaWF0IjoxNTk4MzI2MjY3LCJleHAiOjE1OTg0OTkwNjd9.kfEOyw7c4IdPI-1FWGQPhEtb_G0IwHnFRc6Oa4xQg-k",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "Game Baru Lagi",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "19.99",
+							"type": "text"
+						},
+						{
+							"key": "itemImage",
+							"type": "file",
+							"src": "/C:/Users/faisa/Pictures/Screenshots Temp/Screenshot (7).png"
+						},
+						{
+							"key": "description",
+							"value": "Coba aja deskripsiin lagi",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/items",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"items"
 					]
 				}
 			},

@@ -5,6 +5,7 @@
         "MYSQL_HOST": "localhost",
         "MYSQL_USER": "root",
         "MYSQL_DATABASE": "master_barang",
+        "MYSQL_DATABASE_SEQ": "sequelize_item",
         "MYSQL_PASSWORD": ""
     }
 }

@@ -3,6 +3,7 @@ const app = express();
 const morgan = require('morgan'); //nodejs http request logger
 const bodyParser = require('body-parser'); //allow us to parse body (json data) from request
 const mongoose = require('mongoose'); //mongodb connector
+const logger = require('./api/util/logger');
 
 const sequelize = require('./api/util/databaseseq'); //import the database with sequelize
 
@@ -15,8 +16,8 @@ const pesananRoutes = require('./api/routes/pesanans');
 
 mongoose.connect(
     process.env.MONGODB_CONN_STRING, {
-    useNewUrlParser: true
-}
+        useNewUrlParser: true
+    }
 );
 
 // ==== SYNC ALL SEQUELIZE DEFINED MODEL WITH DATABASE ====
@@ -34,7 +35,7 @@ sequelize.sync()
         // console.log(result);
     })
     .catch(err => {
-        console.log(err);
+        logger.error(err.message);
     });
 // ==== END ====
 

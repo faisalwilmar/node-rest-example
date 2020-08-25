@@ -27,3 +27,8 @@ nodemon.json
 uploads/*
 # but keep the folder
 !uploads/.gitkeep
+
+# exclude everything inside logs
+logs/*
+# but keep the folder
+!logs/.gitkeep

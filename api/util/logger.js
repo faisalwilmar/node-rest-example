@@ -4,12 +4,12 @@ const DailyRotateFile = require('winston-daily-rotate-file'); //keep logs in con
 var transportError = new DailyRotateFile({
     filename: 'errors-%DATE%.log',
     datePattern: 'YYYY-MM-DD-HH',
-    zippedArchive: true,
+    zippedArchive: false,
     maxSize: '20m',
-    maxFiles: '1d',
+    maxFiles: '2d',
     dirname: './logs',
     level: 'error',
-    format: format.combine(format.timestamp(), format.json())
+    format: format.combine(format.timestamp(), format.simple())
 });
 
 const logger = createLogger({

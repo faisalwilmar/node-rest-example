@@ -1,13 +1,7 @@
 const mongoose = require('mongoose');
 const Product = require('../models/product');
 
-const redis = require("redis");
-const client = redis.createClient();
-const logger = require('../util/logger');
-
-client.on("error", function (error) {
-    logger.error(error.message);
-});
+const client = require('../util/redis');
 
 exports.products_get_all = async (req, res, next) => {
     const currentPage = req.query.page || 1;

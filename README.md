@@ -8,6 +8,7 @@ Node-rest-example is example project for RESTful API using NodeJs.
 - Sequelize as ORM (Object Relational Model)
 - Nodemon as Server Monitor -- development dependency
 - Azure Blob Storage
+- Redis Server for Cache. [Download here](https://github.com/dmajkic/redis/downloads) for Windows.
 
 This project based on Maximilian Schwarzmüller's video on [Youtube](https://www.youtube.com/playlist?list=PL55RiY5tL51q4D-B63KBnygU6opNPFk_q) and [Udemy Course](https://www.udemy.com/course/nodejs-the-complete-guide/) with several modifications.
 

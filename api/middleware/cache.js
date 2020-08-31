@@ -1,24 +1,13 @@
-const client = require('../util/redis');
+const CacheConnector = require('../util/cache-connector');
+// https://dzone.com/articles/a-brief-introduction-to-caching-with-nodejs-and-re
 
-exports.cache_products = (req, res, next) => {
+exports.cache_products = async (req, res, next) => {
     const currentPage = req.query.page || 1;
-    let totalProducts, docs = null;
 
-    client.get(`productsPage:${currentPage}`, function (err, reply) {
-        if (err) {
-            throw err;
-        }
+    const connector = new CacheConnector();
 
-        docs = JSON.parse(reply);
-    });
-
-    client.get('totalProducts', function (err, reply) {
-        if (err) {
-            throw err;
-        }
-
-        totalProducts = reply;
-    });
+    const docs = await connector.getValue(`productsPage:${currentPage}`);
+    const totalProducts = await connector.getValue('totalProducts');
 
     if (totalProducts !== null && docs !== null) {
         const response = {

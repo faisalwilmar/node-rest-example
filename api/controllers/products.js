@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Product = require('../models/product');
 
-const client = require('../util/redis');
+const CacheConnector = require('../util/cache-connector');
 
 exports.products_get_all = async (req, res, next) => {
     const currentPage = req.query.page || 1;
@@ -15,9 +15,10 @@ exports.products_get_all = async (req, res, next) => {
             .skip((currentPage - 1) * perPage)
             .limit(perPage);
         // pagination applied
-
-        client.setex(`productsPage:${currentPage}`, 3600, JSON.stringify(docs));
-        client.setex('totalProducts', 3600, totalProducts);
+        
+        const cacheConnector = new CacheConnector();
+        await cacheConnector.setValue(`productsPage:${currentPage}`, JSON.stringify(docs),3600);
+        await cacheConnector.setValue('totalProducts', totalProducts,3600);
 
         const response = {
             totalProducts: totalProducts,

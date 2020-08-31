@@ -24,6 +24,7 @@
     "multer": "^1.4.2",
     "multer-blob-storage": "^1.0.3",
     "mysql2": "^1.7.0",
+    "redis": "^3.0.2",
     "sequelize": "^6.3.4",
     "winston": "^3.3.3",
     "winston-daily-rotate-file": "^4.5.0"

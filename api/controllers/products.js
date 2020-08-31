@@ -1,35 +1,49 @@
 const mongoose = require('mongoose');
 const Product = require('../models/product');
 
-exports.products_get_all = (req, res, next) => {
-    Product.find()
-        .select('name price _id productImage')
-        .exec()
-        .then(docs => {
-            console.log(docs);
-            const response = {
-                count: docs.length,
-                products: docs.map(doc => { //you can pass 'docs' instead but this is how we add metadata, just optional
-                    return {
-                        name: doc.name,
-                        price: doc.price,
-                        _id: doc._id,
-                        productImage: doc.productImage,
-                        requestDetail: {
-                            type: 'GET',
-                            url: "http://localhost:3000/products/" + doc._id
-                        }
+const redis = require("redis");
+const client = redis.createClient();
+const logger = require('../util/logger');
+
+client.on("error", function (error) {
+    logger.error(error.message);
+});
+
+exports.products_get_all = async (req, res, next) => {
+    const currentPage = req.query.page || 1;
+    const perPage = 3;
+    let totalProducts;
+    let docs;
+
+    try {
+        totalProducts = await Product.find().countDocuments();
+        docs = await Product.find()
+            .skip((currentPage - 1) * perPage)
+            .limit(perPage);
+        // pagination applied
+
+        client.setex(`productsPage:${currentPage}`, 3600, JSON.stringify(docs));
+        client.setex('totalProducts', 3600, totalProducts);
+
+        const response = {
+            totalProducts: totalProducts,
+            products: docs.map(doc => { //you can pass 'docs' instead but this is how we add metadata, just optional
+                return {
+                    name: doc.name,
+                    price: doc.price,
+                    _id: doc._id,
+                    productImage: doc.productImage,
+                    requestDetail: {
+                        type: 'GET',
+                        url: "http://localhost:3000/products/" + doc._id
                     }
-                })
-            }
-            res.status(200).json(response);
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json({
-                message: err.message
-            });
-        });
+                }
+            })
+        }
+        res.status(200).json(response);
+    } catch (err) {
+        throw err;
+    }
 }
 
 exports.products_get_single = (req, res, next) => {

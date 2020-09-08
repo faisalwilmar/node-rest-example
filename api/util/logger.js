@@ -1,6 +1,7 @@
 const { createLogger, transports, format } = require('winston');
 const DailyRotateFile = require('winston-daily-rotate-file'); //keep logs in configured amount of time, or size
 // https://youtu.be/PdVlAi7nrRU?t=399
+require('winston-mongodb');
 
 var transportError = new DailyRotateFile({
     filename: 'errors-%DATE%.log',
@@ -23,6 +24,11 @@ const logger = createLogger({
             filename: './logs/combined.log',
             level: 'info',
             format: format.combine(format.timestamp(), format.json())
+        }),
+        new transports.MongoDB({
+            db: process.env.MONGODB_CONN_STRING,
+            level: 'error',
+            collection: 'logs'
         }),
         transportError
     ]

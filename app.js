@@ -33,6 +33,7 @@ Pesanan.belongsToMany(Item, { through: 'Item_Pesanan' });
 sequelize.sync()
     .then(result => {
         // console.log(result);
+        logger.info('MySQL Database Synchronized');
     })
     .catch(err => {
         logger.error(err.message);

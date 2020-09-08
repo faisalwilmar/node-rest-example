@@ -8,3 +8,5 @@ const port = process.env.PORT || 3000; //if set, use defined port, else, use 300
 const server = http.createServer(app); //app is an event listener or first request handler
 
 server.listen(port);
+
+module.exports = server; //exported for testing

@@ -18,9 +18,8 @@ exports.barangs_get_all = (req, res, next) => {
         })
         .catch(err => {
             console.log(err);
-            res.status(500).json({
-                message: err.message
-            });
+            err.status = 500;
+            throw err;
         });
 }
 
@@ -29,23 +28,29 @@ exports.post_add_barangs = (req, res, next) => {
     const nama_barang = req.body.nama_barang;
     const harga = req.body.harga;
 
+    if (id == undefined || nama_barang == undefined || harga == undefined) {
+        const error = new Error();
+        error.status = 400;
+        error.message = "Request Body Incomplete";
+        throw error;
+    }
+
     const barang = new Product(id, nama_barang, harga);
     barang.save()
         .then(result => {
             res.status(201).json({
                 message: "Barang successfully created",
                 createdBarang: {
-                    id: result.id,
-                    nama_barang: result.nama_barang,
-                    harga: result.harga
+                    id: id,
+                    nama_barang: nama_barang,
+                    harga: harga
                 }
             })
         })
         .catch(err => {
             console.log(err);
-            res.status(500).json({
-                message: err.message
-            });
+            err.status = 500;
+            throw err;
         });
 }
 
@@ -53,6 +58,13 @@ exports.barangs_get_single = (req, res, next) => {
     const id = req.params.barangId
     Product.findById(id)
         .then(([barang]) => {
+            if (barang[0] == undefined) {
+                const error = new Error();
+                error.status = 404;
+                error.message = "Barang not found";
+                throw error;
+            }
+
             const response = {
                 id: barang[0].id,
                 nama_barang: barang[0].nama_barang,
@@ -62,8 +74,7 @@ exports.barangs_get_single = (req, res, next) => {
         })
         .catch(err => {
             console.log(err);
-            res.status(500).json({
-                message: err.message
-            });
+            err.status = 500;
+            throw err;
         });
 }

@@ -18,26 +18,27 @@ exports.barangs_get_all = (req, res, next) => {
         })
         .catch(err => {
             console.log(err);
-            err.status = 500;
-            throw err;
+            res.status(400).json({
+                message: err.message
+            })
         });
 }
 
-exports.post_add_barangs = (req, res, next) => {
+exports.post_add_barangs = async (req, res, next) => {
     const id = req.body.id;
     const nama_barang = req.body.nama_barang;
     const harga = req.body.harga;
 
     if (id == undefined || nama_barang == undefined || harga == undefined) {
         const error = new Error();
-        error.status = 400;
         error.message = "Request Body Incomplete";
         throw error;
     }
 
     const barang = new Product(id, nama_barang, harga);
-    barang.save()
-        .then(result => {
+    try {
+        const result = await barang.saveTransac();
+        if (result) {
             res.status(201).json({
                 message: "Barang successfully created",
                 createdBarang: {
@@ -46,12 +47,30 @@ exports.post_add_barangs = (req, res, next) => {
                     harga: harga
                 }
             })
+        }
+    } catch (err) {
+        console.log(err);
+        res.status(400).json({
+            message: err.message
         })
-        .catch(err => {
-            console.log(err);
-            err.status = 500;
-            throw err;
-        });
+    }
+
+    // barang.save()
+    //     .then(result => {
+    //         res.status(201).json({
+    //             message: "Barang successfully created",
+    //             createdBarang: {
+    //                 id: id,
+    //                 nama_barang: nama_barang,
+    //                 harga: harga
+    //             }
+    //         })
+    //     })
+    //     .catch(err => {
+    //         console.log(err);
+    //         err.status = 500;
+    //         throw err;
+    //     });
 }
 
 exports.barangs_get_single = (req, res, next) => {
@@ -74,7 +93,8 @@ exports.barangs_get_single = (req, res, next) => {
         })
         .catch(err => {
             console.log(err);
-            err.status = 500;
-            throw err;
+            res.status(400).json({
+                message: err.message
+            })
         });
 }
